@@ -1,4 +1,17 @@
-async function fetchProducts(): Promise<Array<any>> {
+export interface ProductInterface {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+
+async function fetchProducts(): Promise<Array<ProductInterface>> {
   const response = await fetch("https://fakestoreapi.com/products", {
     method: "GET",
   });
